@@ -5,18 +5,6 @@ dotenv.config();
 
 const { Pool } = pg;
 
-// const pool = new Pool({
-//   user: process.env.DB_USER || 'postgres',
-//   host: process.env.DB_HOST || 'localhost',
-//   database: process.env.DB_NAME || 'qr_code_db',
-//   password: process.env.DB_PASSWORD || '25012003',
-//   port: process.env.DB_PORT ? parseInt(process.env.DB_PORT, 10) : 5432,
-//   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
-//   max: 20, 
-//   idleTimeoutMillis: 30000, 
-//   connectionTimeoutMillis: 2000, 
-// });
-
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
